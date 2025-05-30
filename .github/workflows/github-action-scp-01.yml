@@ -1,0 +1,22 @@
+### github-action-scp-01.yml
+
+name: Artifact workflow-02
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make file with GitHub Actions
+        run: touch actions-file.log
+
+      - name: Upload file to AWS EC2 via SCP
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          source: actions-file.log
+          target: /home/ubuntu
