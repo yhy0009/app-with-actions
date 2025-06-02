@@ -11,4 +11,9 @@ public class ActionsController {
 		return "app-with-actions version:0.0.2";
 	}
 	
+	@GetMapping(value = "/")
+	public String actionsTest1() {
+		return "app-with-actions version";
+	}
+	
 }
