@@ -13,7 +13,7 @@ public class ActionsController {
 	
 	@GetMapping(value = "/")
 	public String actionsTest1() {
-		return "app-with-actions version";
+		return "app-with-actions version:0.0.2";
 	}
 	
 }
